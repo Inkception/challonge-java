@@ -21,7 +21,7 @@ implementation 'com.github.Inkception:challonge-java:core:%VERSION%'
 <repository>
     <id>jitpack.io</id>
     <url>https://jitpack.io</url>
-</repository
+</repository>
 
 <dependency>
     <groupId>com.github.Inkception.challonge-java</groupId>
