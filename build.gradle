@@ -7,8 +7,8 @@ buildscript {
 allprojects {
     apply plugin: 'java'
     apply plugin: 'jacoco'
-    apply plugin: 'maven-publish'
-    apply plugin: 'signing'
+    //apply plugin: 'maven-publish'
+    //apply plugin: 'signing'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -47,6 +47,7 @@ subprojects {
         classifier = 'javadoc'
     }
 
+    /*
     publishing {
         repositories {
             maven {
@@ -100,13 +101,18 @@ subprojects {
                 }
             }
         }
+
+     */
     }
 
+/*
     signing {
         useGpgCmd()
         sign publishing.publications.mavenJava
     }
 }
+
+
 
 task localPublish {
     dependsOn('core:localPublish')
@@ -119,6 +125,8 @@ task remotePublish {
     dependsOn('serializers:remotePublish')
     dependsOn('rest:remotePublish')
 }
+
+     */
 
 task codeCoverageReport(type: JacocoReport) {
     executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
