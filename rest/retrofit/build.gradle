@@ -5,6 +5,7 @@ dependencies {
     testCompile group: 'com.squareup.retrofit2', name: 'retrofit-mock', version: property('retrofit.mock.version')
 }
 
+/*
 publishing {
     publications {
         mavenJava {
@@ -23,3 +24,5 @@ task localPublish {
 task remotePublish {
     dependsOn('publish')
 }
+
+ */
