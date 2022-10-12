@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,6 +58,15 @@ public class ParticipantAdapter implements JsonDeserializer<Participant> {
         Boolean checkInOpen = e.get("check_in_open").getAsBoolean();
         Boolean hasIrrelevantSeed = e.get("has_irrelevant_seed").getAsBoolean();
         String username = getOrNull(e, "username") != null ? getOrNull(e, "username").getAsString() : null;
+
+        JsonArray groupPlayerIdArray = getOrNull(e, "group_player_ids") != null ? getOrNull(e, "group_player_ids").getAsJsonArray() : null;
+        List<Long> groupPlayerIds = new ArrayList<>();
+        if (groupPlayerIdArray != null) {
+            groupPlayerIdArray.forEach(element -> {
+                groupPlayerIds.add(element.getAsLong());
+            });
+        }
+
         List<Match> matches = context.deserialize(e.get("matches"), new TypeToken<List<Match>>() {
         }.getType());
 
@@ -70,7 +80,7 @@ public class ParticipantAdapter implements JsonDeserializer<Participant> {
                 .icon(icon).invitationId(invitationId).invitationPending(invitationPending).onWaitingList(onWaitingList)
                 .participatableOrInvitationAttached(participatableOrInvitationAttached).reactivatable(reactivatable)
                 .displayName(displayName).checkInOpen(checkInOpen).hasIrrelevantSeed(hasIrrelevantSeed)
-                .removable(removable).username(username).matches(matches).build();
+                .removable(removable).username(username).matches(matches).groupPlayerIds(groupPlayerIds).build();
     }
 
     private JsonElement getOrNull(JsonObject o, String key) {

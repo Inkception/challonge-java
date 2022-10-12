@@ -42,5 +42,6 @@ public class Participant {
     private Boolean canCheckIn;
     private Boolean checkedIn;
     private Boolean reactivatable;
+    private List<Long> groupPlayerIds;
     private List<Match> matches;
 }
