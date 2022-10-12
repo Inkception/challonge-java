@@ -16,6 +16,7 @@ task delombok(type: DelombokTask, dependsOn: compileJava) {
     }
 }
 
+/*
 task localPublish {
     dependsOn('publishToMavenLocal')
 }
@@ -23,6 +24,7 @@ task localPublish {
 task remotePublish {
     dependsOn('publish')
 }
+ */
 
 javadoc {
     dependsOn delombok

@@ -1,6 +1,7 @@
 allprojects {
     group 'at.stefangeyer.challonge.rest'
 }
+/*
 
 task localPublish {
     dependsOn('retrofit:localPublish')
@@ -9,3 +10,5 @@ task localPublish {
 task remotePublish {
     dependsOn('retrofit:remotePublish')
 }
+
+ */

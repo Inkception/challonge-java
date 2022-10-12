@@ -3,6 +3,7 @@ dependencies {
     compile group: 'com.google.code.gson', name: 'gson', version: property('gson.version')
 }
 
+/*
 publishing {
     publications {
         mavenJava {
@@ -21,3 +22,4 @@ task localPublish {
 task remotePublish {
     dependsOn('publish')
 }
+ */
