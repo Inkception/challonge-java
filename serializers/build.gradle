@@ -1,11 +1,3 @@
 allprojects {
     group 'at.stefangeyer.challonge.serializer'
 }
-
-task localPublish {
-    dependsOn('gson:localPublish')
-}
-
-task remotePublish {
-    dependsOn('gson:remotePublish')
-}

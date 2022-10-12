@@ -16,31 +16,8 @@ task delombok(type: DelombokTask, dependsOn: compileJava) {
     }
 }
 
-/*
-task localPublish {
-    dependsOn('publishToMavenLocal')
-}
-
-task remotePublish {
-    dependsOn('publish')
-}
- */
-
 javadoc {
     dependsOn delombok
     source = delombok.outputDir
     failOnError = false
 }
-
-/*
-publishing {
-    publications {
-        mavenJava {
-            pom {
-                name = 'Challonge Java'
-                description = 'Java and JVM bindings for the Challonge API'
-            }
-        }
-    }
-}
- */
