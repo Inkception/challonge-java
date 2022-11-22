@@ -15,7 +15,14 @@ public class MatchQueryAdapter implements JsonSerializer<MatchQuery> {
         JsonObject entity = new JsonObject();
 
         if (query.getWinnerId() != null) {
-            entity.addProperty("winner_id", query.getWinnerId());
+            Object winnerId = query.getWinnerId();
+
+            // janky casting, but this should work for the time being
+            if (winnerId instanceof Long) {
+                entity.addProperty("winner_id", (long)query.getWinnerId());
+            } else {
+                entity.addProperty("winner_id", (String)query.getWinnerId());
+            }
         }
 
         if (query.getVotesForPlayer1() != null) {
